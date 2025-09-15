@@ -1,3 +1,9 @@
+# flextable 0.9.10.9001
+
+## Issues
+
+- fix `save_as_html` example and test temp directory not writable.
+
 # flextable 0.9.10
 
 ## new features

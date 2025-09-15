@@ -83,7 +83,7 @@ test_that("multiple images", {
     c(".jpg", ".png", ".png")
   )
 
-  html_path <- save_as_html(ft, path = tempfile(fileext = ".html"))
+  html_path <- save_as_html(ft, path = tempfile(tmpdir = tempdir(check = TRUE), fileext = ".html"))
   doc <- read_html(html_path)
   all_imgs <- xml_find_all(doc, "//img")
   src_imgs <- xml_attr(all_imgs, "src")

@@ -722,14 +722,14 @@ knit_print.flextable <- function(x, ...) {
 #' @return a string containing the full name of the generated file
 #' @examples
 #' ft1 <- flextable(head(iris))
-#' tf1 <- tempfile(fileext = ".html")
+#' tf1 <- tempfile(tmpdir = tempdir(check = TRUE), fileext = ".html")
 #' if (rmarkdown::pandoc_available()) {
 #'   save_as_html(ft1, path = tf1)
 #'   # browseURL(tf1)
 #' }
 #'
 #' ft2 <- flextable(head(mtcars))
-#' tf2 <- tempfile(fileext = ".html")
+#' tf2 <- tempfile(tmpdir = tempdir(check = TRUE), fileext = ".html")
 #' if (rmarkdown::pandoc_available()) {
 #'   save_as_html(
 #'     `iris table` = ft1,

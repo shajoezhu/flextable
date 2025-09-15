@@ -269,7 +269,7 @@ test_that("grouped data structure", {
   expect_equal(xml_attr(xml_child(xml_cell_2_1, "w:tcPr/w:tcBorders/w:right"), "sz"), "0")
 
   # html testing
-  html_file <- tempfile(fileext = ".html")
+  html_file <- tempfile(tmpdir = tempdir(check = TRUE), fileext = ".html")
   save_as_html(ft_1, path = html_file)
   xml_doc <- read_html(html_file)
   xml_tbl <- xml_find_first(xml_doc, "//table")
