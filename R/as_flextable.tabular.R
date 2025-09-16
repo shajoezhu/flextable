@@ -297,7 +297,7 @@ fortify_tabular_body <- function(x, ...) {
   row_labels <- as.data.frame(unclass(tables::rowLabels(x)))
   names(row_labels) <- sprintf("COL%.0f", seq_len(ncol(row_labels)))
 
-  dims <- attr(x, "dim")
+  dims <- attr2(x, "dim")
   celldata <- matrix(x[], nrow = dims[1], ncol = dims[2])
   celldata <- apply(celldata, 2, function(dat) {
     unlist(dat)
@@ -322,12 +322,12 @@ fortify_tabular_header <- function(x, ...) {
 }
 
 fortify_tabular_justify <- function(x, justification = "c", ...) {
-  justify <- attr(x, "justification")
+  justify <- attr2(x, "justification")
   rlabels <- tables::rowLabels(x)
-  rjustify <- attr(rlabels, "justification")
+  rjustify <- attr2(rlabels, "justification")
 
   clabels <- tables::colLabels(x)
-  cjustify <- attr(clabels, "justification")
+  cjustify <- attr2(clabels, "justification")
   corjustify <- matrix(NA, nrow(clabels), ncol(rlabels))
   for (i in seq_len(ncol(rlabels))) {
     corjustify[nrow(clabels), i] <- rjustify[1, i]

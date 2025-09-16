@@ -151,14 +151,14 @@ if (!"gregexec" %in% getNamespaceExports("base")) {
           y <- x
         } else {
           ## Interleave matches with captures
-          y <- t(cbind(x, attr(x, "capture.start")))
+          y <- t(cbind(x, attr2(x, "capture.start")))
           attributes(y)[names(attributes(x))] <- attributes(x)
-          ml <- t(cbind(attr(x, "match.length"), attr(x, "capture.length")))
-          nm <- attr(x, "capture.names")
+          ml <- t(cbind(attr2(x, "match.length"), attr2(x, "capture.length")))
+          nm <- attr2(x, "capture.names")
           ## Remove empty names that `gregexpr` returns
           dimnames(ml) <- dimnames(y) <-
             if (any(nzchar(nm))) list(c("", nm), NULL)
-          attr(y, "match.length") <- ml
+          attr2(y, "match.length") <- ml
           y
         }
         attributes(y)[capt.attr] <- NULL
@@ -180,11 +180,11 @@ if (!"gregexec" %in% getNamespaceExports("base")) {
         function(outer, inner) {
           tmp <- do.call(cbind, inner)
           attributes(tmp)[names(attributes(inner))] <- attributes(inner)
-          attr(tmp, "match.length") <-
+          attr2(tmp, "match.length") <-
             do.call(cbind, lapply(inner, `attr`, "match.length"))
           # useBytes/index.type should be same for all so use outer vals
-          attr(tmp, "useBytes") <- attr(outer, "useBytes")
-          attr(tmp, "index.type") <- attr(outer, "index.type")
+          attr2(tmp, "useBytes") <- attr2(outer, "useBytes")
+          attr2(tmp, "index.type") <- attr2(outer, "index.type")
           tmp + rep(outer - 1L, each = nrow(tmp))
         },
         dat[im],
@@ -199,9 +199,9 @@ collect_labels <- function(dataset, use_labels = TRUE) {
   lbls <- character()
   values_labels <- list()
   if (use_labels) {
-    lbls <- lapply(dataset, function(x) attr(x, "label"))
+    lbls <- lapply(dataset, function(x) attr2(x, "label"))
     lbls <- Filter(function(x) !is.null(x), lbls)
-    values_labels <- lapply(dataset, function(x) attr(x, "labels"))
+    values_labels <- lapply(dataset, function(x) attr2(x, "labels"))
     values_labels <- Filter(f = function(x) !is.null(x), values_labels)
     values_labels <- lapply(values_labels, function(x) {
       values_lbls <- names(x)

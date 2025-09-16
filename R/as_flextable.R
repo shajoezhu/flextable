@@ -101,8 +101,8 @@ as_grouped_data <- function(x, groups, columns = NULL, expand_single = TRUE) {
   x$rleid <- NULL
   setDF(x)
   class(x) <- c("grouped_data", class(x))
-  attr(x, "groups") <- groups
-  attr(x, "columns") <- columns
+  attr2(x, "groups") <- groups
+  attr2(x, "columns") <- columns
   x
 }
 
@@ -138,9 +138,9 @@ as_grouped_data <- function(x, groups, columns = NULL, expand_single = TRUE) {
 #' @seealso [as_grouped_data()]
 as_flextable.grouped_data <- function(x, col_keys = NULL, hide_grouplabel = FALSE, ...) {
   if (is.null(col_keys)) {
-    col_keys <- attr(x, "columns")
+    col_keys <- attr2(x, "columns")
   }
-  groups <- attr(x, "groups")
+  groups <- attr2(x, "groups")
   if (hide_grouplabel) {
     col_keys <- setdiff(col_keys, groups)
   }

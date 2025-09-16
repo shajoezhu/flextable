@@ -180,14 +180,14 @@ caption_bookdown_html <- function(x) {
     "</caption>\n"
   )
 
-  attr(caption_str, "css") <- css
+  attr2(caption_str, "css") <- css
   caption_str
 }
 
 caption_default_html <- function(x) {
   if (!has_caption(x)) {
     caption_str <- ""
-    attr(caption_str, "css") <- ""
+    attr2(caption_str, "css") <- ""
     return(caption_str)
   }
 
@@ -223,7 +223,7 @@ caption_default_html <- function(x) {
     caption_chunks_str,
     "</caption>"
   )
-  attr(caption_str, "css") <- css
+  attr2(caption_str, "css") <- css
 
   caption_str
 }
@@ -322,7 +322,7 @@ caption_chunks_html <- function(x) {
   if (!x$caption$simple_caption) {
     caption_df <- x$caption$value
     caption_spans <- runs_as_html(x, chunk_data = caption_df)
-    css <- attr(caption_spans, "css")
+    css <- attr2(caption_spans, "css")
     caption_chunks_str <- paste0(caption_spans$span_tag, collapse = "")
   } else {
     css <- ""

@@ -137,9 +137,9 @@ SHIFT_TABLE <- shift_table(
 )
 
 # get attrs for post treatment ----
-SHIFT_TABLE_VISIT <- attr(SHIFT_TABLE, "VISIT_N")
-visit_as_factor <- attr(SHIFT_TABLE, "FUN_VISIT")
-range_as_factor <- attr(SHIFT_TABLE, "FUN_GRADE")
+SHIFT_TABLE_VISIT <- attr2(SHIFT_TABLE, "VISIT_N")
+visit_as_factor <- attr2(SHIFT_TABLE, "FUN_VISIT")
+range_as_factor <- attr2(SHIFT_TABLE, "FUN_GRADE")
 
 # post treatments ----
 SHIFT_TABLE$VISIT <- visit_as_factor(SHIFT_TABLE$VISIT)

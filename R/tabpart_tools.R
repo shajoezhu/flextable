@@ -295,7 +295,7 @@ get_j_from_formula <- function(f, data) {
   if (length(f) > 2) {
     stop("formula selection is not as expected ( ~ variables )", call. = FALSE)
   }
-  j <- attr(terms(f, data = data), "term.labels")
+  j <- attr2(terms(f, data = data), "term.labels")
   j <- gsub("(^`|`$)", "", j)
   names_ <- names(data)
 

@@ -27,3 +27,7 @@
 #' @aliases flextable-package
 #' @name flextable-package
 "_PACKAGE"
+
+
+#' @importFrom xfun attr2
+NULL
