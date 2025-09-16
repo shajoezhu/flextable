@@ -29,5 +29,5 @@
 "_PACKAGE"
 
 
-#' @importFrom xfun attr2
+#' @importFrom xfun attr2 attr2<-
 NULL

@@ -101,8 +101,8 @@ as_grouped_data <- function(x, groups, columns = NULL, expand_single = TRUE) {
   x$rleid <- NULL
   setDF(x)
   class(x) <- c("grouped_data", class(x))
-  attr2(x, "groups") <- groups
-  attr2(x, "columns") <- columns
+  attr(x, "groups") <- groups
+  attr(x, "columns") <- columns
   x
 }
 

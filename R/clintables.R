@@ -297,8 +297,8 @@ shift_table <- function(
 
   setDF(SHIFT_TABLE)
 
-  attr2(SHIFT_TABLE, "VISIT_N") <- SHIFT_TABLE_VISIT
-  attr2(SHIFT_TABLE, "FUN_VISIT") <- facfun_visit(x, cn_visit = cn_visit, cn_visit_num = cn_visit_num)
-  attr2(SHIFT_TABLE, "FUN_GRADE") <- facfun_grade(x, grade_levels = grade_levels, grade_labels = grade_labels)
+  attr(SHIFT_TABLE, "VISIT_N") <- SHIFT_TABLE_VISIT
+  attr(SHIFT_TABLE, "FUN_VISIT") <- facfun_visit(x, cn_visit = cn_visit, cn_visit_num = cn_visit_num)
+  attr(SHIFT_TABLE, "FUN_GRADE") <- facfun_grade(x, grade_levels = grade_levels, grade_labels = grade_labels)
   SHIFT_TABLE
 }

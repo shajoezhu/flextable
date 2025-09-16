@@ -180,14 +180,14 @@ caption_bookdown_html <- function(x) {
     "</caption>\n"
   )
 
-  attr2(caption_str, "css") <- css
+  attr(caption_str, "css") <- css
   caption_str
 }
 
 caption_default_html <- function(x) {
   if (!has_caption(x)) {
     caption_str <- ""
-    attr2(caption_str, "css") <- ""
+    attr(caption_str, "css") <- ""
     return(caption_str)
   }
 
@@ -223,7 +223,7 @@ caption_default_html <- function(x) {
     caption_chunks_str,
     "</caption>"
   )
-  attr2(caption_str, "css") <- css
+  attr(caption_str, "css") <- css
 
   caption_str
 }

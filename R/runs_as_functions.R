@@ -84,7 +84,7 @@ runs_as_html <- function(x, chunk_data = information_data_chunk(x)) {
   setorderv(spans_dataset, cols = by_columns)
 
   setDF(spans_dataset)
-  attr2(spans_dataset, "css") <- span_style_str
+  attr(spans_dataset, "css") <- span_style_str
   spans_dataset
 }
 runs_as_text <- function(x, chunk_data = information_data_chunk(x)) {

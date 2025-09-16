@@ -109,7 +109,7 @@ summarizor <- function(
 
   dat$variable <- factor(dat$variable, levels = cols)
   setDF(dat)
-  attr2(dat, "use_labels") <- list(
+  attr(dat, "use_labels") <- list(
     stat = c(
       stat = "", mean_sd = "Mean (SD)", median_iqr = "Median (IQR)",
       range = "Range", missing = "Missing"
@@ -117,8 +117,8 @@ summarizor <- function(
     variable = c(variable = "", unlist(list_lbls$variables_labels))
   )
   class(dat) <- c("summarizor", class(dat))
-  attr2(dat, "n_by") <- datn
-  attr2(dat, "by") <- by
+  attr(dat, "n_by") <- datn
+  attr(dat, "by") <- by
   dat
 }
 

@@ -158,7 +158,7 @@ if (!"gregexec" %in% getNamespaceExports("base")) {
           ## Remove empty names that `gregexpr` returns
           dimnames(ml) <- dimnames(y) <-
             if (any(nzchar(nm))) list(c("", nm), NULL)
-          attr2(y, "match.length") <- ml
+          attr(y, "match.length") <- ml
           y
         }
         attributes(y)[capt.attr] <- NULL
@@ -180,11 +180,11 @@ if (!"gregexec" %in% getNamespaceExports("base")) {
         function(outer, inner) {
           tmp <- do.call(cbind, inner)
           attributes(tmp)[names(attributes(inner))] <- attributes(inner)
-          attr2(tmp, "match.length") <-
+          attr(tmp, "match.length") <-
             do.call(cbind, lapply(inner, `attr`, "match.length"))
           # useBytes/index.type should be same for all so use outer vals
-          attr2(tmp, "useBytes") <- attr2(outer, "useBytes")
-          attr2(tmp, "index.type") <- attr2(outer, "index.type")
+          attr(tmp, "useBytes") <- attr2(outer, "useBytes")
+          attr(tmp, "index.type") <- attr2(outer, "index.type")
           tmp + rep(outer - 1L, each = nrow(tmp))
         },
         dat[im],
