@@ -114,8 +114,8 @@ as_flextable.xtable <- function(
     format.args$decimal.mark <- options()$OutDec
   }
 
-  digits_val <- attr2(x, "digits", exact = TRUE)
-  display_val <- attr2(x, "display", exact = TRUE)
+  digits_val <- attr2(x, "digits")
+  display_val <- attr2(x, "display")
   align <- attr2(x, "align")
 
   if (!include.rownames) {
