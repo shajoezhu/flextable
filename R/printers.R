@@ -27,7 +27,7 @@ htmltools_value <- function(x, ft.align = NULL, ft.shadow = NULL,
   }
 
   caption <- caption_default_html(x)
-  manual_css <- attr(caption, "css")
+  manual_css <- attr2(caption, "css")
 
   list_deps <- html_dependencies_list(x)
 
@@ -209,12 +209,12 @@ knit_to_html <- function(x, bookdown = FALSE, quarto = FALSE) {
   manual_css <- ""
   if (bookdown) {
     caption_str <- caption_bookdown_html(x)
-    manual_css <- attr(caption_str, "css")
+    manual_css <- attr2(caption_str, "css")
   } else if (quarto) {
     caption_str <- ""
   } else {
     caption_str <- caption_default_html(x)
-    manual_css <- attr(caption_str, "css")
+    manual_css <- attr2(caption_str, "css")
   }
 
   table_str <- gen_raw_html(x,

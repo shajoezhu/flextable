@@ -130,8 +130,8 @@ tabulator <- function(x, rows, columns,
     `rows can not be empty` = length(rows) > 0,
     `columns can not be empty` = length(columns) > 0
   )
-  use_labels <- attr(x, "use_labels")
-  n_by <- attr(x, "n_by")
+  use_labels <- attr2(x, "use_labels")
+  n_by <- attr2(x, "n_by")
 
   x <- as.data.frame(x)
 

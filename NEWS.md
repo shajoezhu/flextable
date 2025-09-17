@@ -2,7 +2,7 @@
 
 ## Issues
 
-- fix `save_as_html` example and test temp directory not writable.
+- import xfun::attr2
 
 # flextable 0.9.10
 

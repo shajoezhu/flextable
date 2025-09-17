@@ -65,7 +65,7 @@ as_image <- function(src, width = NULL, height = NULL, unit = "in", guess_size =
     sizes <- lapply(src, function(x) {
       z <- magick::image_read(x)
       z <- magick::image_data(z)
-      attr(z, "dim")[-1]
+      attr2(z, "dim")[-1]
     })
     sizes <- do.call(rbind, sizes)
     width <- sizes[, 1] / 72

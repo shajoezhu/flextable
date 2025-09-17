@@ -50,6 +50,7 @@ Imports:
     stats,
     utils,
     uuid (>= 0.1-4),
+    xfun,
     xml2
 Suggests:
     bookdown (>= 0.40),

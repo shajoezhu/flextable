@@ -563,7 +563,7 @@ add_body_row <- function(x, top = TRUE, values = list(), colwidths = integer(0))
   body_data <- x$body$dataset[nrow(x$body$dataset) + 1, ]
 
   if (inherits(values, "paragraph")) {
-  } else if (!is.null(attr(values, "names"))) {
+  } else if (!is.null(attr2(values, "names"))) {
     body_data[, names(values)] <- values
   } else {
     body_data[, which(row_span > 0)] <- values

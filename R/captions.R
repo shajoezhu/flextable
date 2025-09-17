@@ -322,7 +322,7 @@ caption_chunks_html <- function(x) {
   if (!x$caption$simple_caption) {
     caption_df <- x$caption$value
     caption_spans <- runs_as_html(x, chunk_data = caption_df)
-    css <- attr(caption_spans, "css")
+    css <- attr2(caption_spans, "css")
     caption_chunks_str <- paste0(caption_spans$span_tag, collapse = "")
   } else {
     css <- ""

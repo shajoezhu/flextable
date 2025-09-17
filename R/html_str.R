@@ -124,7 +124,7 @@ html_content_strs <- function(x) {
   setDT(par_data_f)
 
   txt_data <- runs_as_html(x, chunk_data = information_data_chunk(x))
-  span_style_str <- attr(txt_data, "css")
+  span_style_str <- attr2(txt_data, "css")
   setDT(txt_data)
 
   cell_data <- merge(
@@ -452,8 +452,6 @@ render_htmltag <- function(x, path, title, lang = "en") {
         params = list(x = x)
       )
       sucess <- file.copy(html_file, path, overwrite = TRUE)
-    },
-    warning = function(e) {
     },
     error = function(e) {
     }

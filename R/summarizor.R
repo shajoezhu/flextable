@@ -148,7 +148,7 @@ as_flextable.summarizor <- function(x, ...) {
   tab <- tabulator(
     x = x,
     rows = c("variable", "stat"),
-    columns = attr(x, "by"),
+    columns = attr2(x, "by"),
     blah = as_paragraph(
       as_chunk(
         fmt_summarizor(
@@ -518,7 +518,7 @@ fmt_signif_after_zeros <- function(x, digits = 3) {
 
   # first non zero index
   regex_non0 <- regexpr("^[0]+", decimal_part)
-  pos_non0 <- attr(regex_non0, "match.length")
+  pos_non0 <- attr2(regex_non0, "match.length")
   pos_non0[pos_non0 < 0] <- nchar(decimal_part)[pos_non0 < 0]
 
   dec_str <- substr(decimal_part, start = regex_non0, stop = pos_non0 + digits)
