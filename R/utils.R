@@ -181,7 +181,7 @@ if (!"gregexec" %in% getNamespaceExports("base")) {
           tmp <- do.call(cbind, inner)
           attributes(tmp)[names(attributes(inner))] <- attributes(inner)
           attr(tmp, "match.length") <-
-            do.call(cbind, lapply(inner, `attr`, "match.length"))
+            do.call(cbind, lapply(inner, `attr2`, "match.length"))
           # useBytes/index.type should be same for all so use outer vals
           attr(tmp, "useBytes") <- attr2(outer, "useBytes")
           attr(tmp, "index.type") <- attr2(outer, "index.type")
