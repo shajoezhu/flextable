@@ -1,0 +1,68 @@
+# Clear the displayed content of selected columns
+
+`void()` replaces the visible text of the selected columns with an empty
+string. The columns themselves (and their headers) remain in the table,
+but the cell values are no longer displayed.
+
+This is useful when a column should stay in the layout (e.g. to preserve
+its width or to keep its header label) but its body values should be
+hidden, for instance after using
+[`compose()`](https://davidgohel.github.io/flextable/reference/compose.md)
+to build a richer display in a neighbouring column that already
+incorporates those values.
+
+The underlying dataset is not modified; only the displayed content is
+affected. To remove a column entirely, use the `col_keys` argument of
+[`flextable()`](https://davidgohel.github.io/flextable/reference/flextable.md)
+instead.
+
+## Usage
+
+``` r
+void(x, j = NULL, part = "body")
+```
+
+## Arguments
+
+- x:
+
+  a 'flextable' object, see
+  [flextable-package](https://davidgohel.github.io/flextable/reference/flextable-package.md)
+  to learn how to create 'flextable' object.
+
+- j:
+
+  column selector, see section *Column selection with the `j` parameter*
+  in
+  \<[`Selectors in flextable`](https://davidgohel.github.io/flextable/reference/flextable_selectors.md)\>.
+
+- part:
+
+  part selector, see section *Part selection with the `part` parameter*
+  in
+  \<[`Selectors in flextable`](https://davidgohel.github.io/flextable/reference/flextable_selectors.md)\>.
+  Value 'all' can be used.
+
+## See also
+
+Other functions to compose cell content:
+[`append_chunks()`](https://davidgohel.github.io/flextable/reference/append_chunks.md),
+[`as_paragraph()`](https://davidgohel.github.io/flextable/reference/as_paragraph.md),
+[`compose()`](https://davidgohel.github.io/flextable/reference/compose.md),
+[`footnote()`](https://davidgohel.github.io/flextable/reference/footnote.md),
+[`labelizor()`](https://davidgohel.github.io/flextable/reference/labelizor.md),
+[`prepend_chunks()`](https://davidgohel.github.io/flextable/reference/prepend_chunks.md)
+
+## Examples
+
+``` r
+ftab <- flextable(head(mtcars))
+ftab <- void(ftab, ~ vs + am + gear + carb)
+ftab
+
+
+.cl-d8bad469{}.cl-5430bca3{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a1958ec5{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-8e0ee45a{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a18b2e34{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-c9ec629b{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}
+
+
+mpg
+```

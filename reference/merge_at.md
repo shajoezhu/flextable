@@ -1,0 +1,58 @@
+# Merge flextable cells into a single one
+
+Merge flextable cells into a single one. All rows and columns must be
+consecutive.
+
+## Usage
+
+``` r
+merge_at(x, i = NULL, j = NULL, part = "body")
+```
+
+## Arguments
+
+- x:
+
+  a 'flextable' object, see
+  [flextable-package](https://davidgohel.github.io/flextable/reference/flextable-package.md)
+  to learn how to create 'flextable' object.
+
+- i:
+
+  row selector, see section *Row selection with the `i` parameter* in
+  \<[`Selectors in flextable`](https://davidgohel.github.io/flextable/reference/flextable_selectors.md)\>.
+
+- j:
+
+  column selector, see section *Column selection with the `j` parameter*
+  in
+  \<[`Selectors in flextable`](https://davidgohel.github.io/flextable/reference/flextable_selectors.md)\>.
+
+- part:
+
+  part selector, see section *Part selection with the `part` parameter*
+  in
+  \<[`Selectors in flextable`](https://davidgohel.github.io/flextable/reference/flextable_selectors.md)\>.
+  Value 'all' is not allowed by the function.
+
+## See also
+
+Other cell merging functions:
+[`merge_h()`](https://davidgohel.github.io/flextable/reference/merge_h.md),
+[`merge_h_range()`](https://davidgohel.github.io/flextable/reference/merge_h_range.md),
+[`merge_none()`](https://davidgohel.github.io/flextable/reference/merge_none.md),
+[`merge_v()`](https://davidgohel.github.io/flextable/reference/merge_v.md)
+
+## Examples
+
+``` r
+ft_merge <- flextable(head(mtcars), cwidth = .5)
+ft_merge <- merge_at(ft_merge, i = 1:2, j = 1:2)
+ft_merge
+
+
+.cl-d8bad469{}.cl-58d9c9bd{font-family:'Liberation Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a1958ec5{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-019d864c{width:0.5in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d887dd8d{width:0.5in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-a42d0976{width:0.5in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}
+
+
+mpg
+```

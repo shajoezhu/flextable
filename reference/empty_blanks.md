@@ -1,0 +1,94 @@
+# Make blank columns transparent
+
+Blank columns are set as transparent. This is a shortcut function that
+deletes top and bottom borders, changes the background color to
+transparent, displays empty content, and sets blank column widths.
+
+## Usage
+
+``` r
+empty_blanks(x, width = 0.05, unit = "in", part = "all")
+```
+
+## Arguments
+
+- x:
+
+  a 'flextable' object, see
+  [flextable-package](https://davidgohel.github.io/flextable/reference/flextable-package.md)
+  to learn how to create 'flextable' object.
+
+- width:
+
+  width of blank columns (.1 inch by default).
+
+- unit:
+
+  unit for width, one of "in", "cm", "mm".
+
+- part:
+
+  part selector, see section *Part selection with the `part` parameter*
+  in
+  \<[`Selectors in flextable`](https://davidgohel.github.io/flextable/reference/flextable_selectors.md)\>.
+  Value 'all' can be used.
+
+## See also
+
+Other formatting shortcuts:
+[`align()`](https://davidgohel.github.io/flextable/reference/align.md),
+[`bg()`](https://davidgohel.github.io/flextable/reference/bg.md),
+[`bold()`](https://davidgohel.github.io/flextable/reference/bold.md),
+[`color()`](https://davidgohel.github.io/flextable/reference/color.md),
+[`font()`](https://davidgohel.github.io/flextable/reference/font.md),
+[`fontsize()`](https://davidgohel.github.io/flextable/reference/fontsize.md),
+[`highlight()`](https://davidgohel.github.io/flextable/reference/highlight.md),
+[`indentation()`](https://davidgohel.github.io/flextable/reference/indentation.md),
+[`italic()`](https://davidgohel.github.io/flextable/reference/italic.md),
+[`keep_with_next()`](https://davidgohel.github.io/flextable/reference/keep_with_next.md),
+[`line_spacing()`](https://davidgohel.github.io/flextable/reference/line_spacing.md),
+[`padding()`](https://davidgohel.github.io/flextable/reference/padding.md),
+[`rotate()`](https://davidgohel.github.io/flextable/reference/rotate.md),
+[`style()`](https://davidgohel.github.io/flextable/reference/style.md),
+[`tab_settings()`](https://davidgohel.github.io/flextable/reference/tab_settings.md),
+[`valign()`](https://davidgohel.github.io/flextable/reference/valign.md)
+
+## Examples
+
+``` r
+typology <- data.frame(
+  col_keys = c(
+    "Sepal.Length", "Sepal.Width", "Petal.Length",
+    "Petal.Width", "Species"
+  ),
+  what = c("Sepal", "Sepal", "Petal", "Petal", " "),
+  measure = c("Length", "Width", "Length", "Width", "Species"),
+  stringsAsFactors = FALSE
+)
+typology
+#>       col_keys  what measure
+#> 1 Sepal.Length Sepal  Length
+#> 2  Sepal.Width Sepal   Width
+#> 3 Petal.Length Petal  Length
+#> 4  Petal.Width Petal   Width
+#> 5      Species       Species
+
+ftab <- flextable(head(iris), col_keys = c(
+  "Species",
+  "break1", "Sepal.Length", "Sepal.Width",
+  "break2", "Petal.Length", "Petal.Width"
+))
+ftab <- set_header_df(ftab, mapping = typology, key = "col_keys")
+ftab <- merge_h(ftab, part = "header")
+ftab <- theme_vanilla(ftab)
+ftab <- empty_blanks(ftab)
+ftab <- width(ftab, j = c(2, 5), width = .1)
+ftab
+
+
+.cl-d8bad469{}.cl-8a796ab5{font-family:'DejaVu Sans';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-5430bca3{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6477613b{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-a1958ec5{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-28b2f99c{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-84aa2ce4{width:0.1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-8d7a6ce6{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-0ce1d83f{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-b348d8ca{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3dd07d17{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ea5db0af{width:0.1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-47dc2547{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5f9c755b{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fab4ba31{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0.75pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7f608486{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f630d810{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0.75pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}
+
+
+
+ 
+```

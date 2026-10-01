@@ -1,0 +1,66 @@
+# Set all inner borders
+
+The function is applying a vertical and horizontal borders to inner
+content of one or all parts of a flextable.
+
+## Usage
+
+``` r
+border_inner(x, border = NULL, part = "all")
+```
+
+## Arguments
+
+- x:
+
+  a 'flextable' object, see
+  [flextable-package](https://davidgohel.github.io/flextable/reference/flextable-package.md)
+  to learn how to create 'flextable' object.
+
+- border:
+
+  border properties defined by a call to
+  [`officer::fp_border()`](https://davidgohel.github.io/officer/reference/fp_border.html)
+
+- part:
+
+  part selector, see section *Part selection with the `part` parameter*
+  in
+  \<[`Selectors in flextable`](https://davidgohel.github.io/flextable/reference/flextable_selectors.md)\>.
+  Value 'all' can be used.
+
+## See also
+
+Other borders management:
+[`border_inner_h()`](https://davidgohel.github.io/flextable/reference/border_inner_h.md),
+[`border_inner_v()`](https://davidgohel.github.io/flextable/reference/border_inner_v.md),
+[`border_outer()`](https://davidgohel.github.io/flextable/reference/border_outer.md),
+[`border_remove()`](https://davidgohel.github.io/flextable/reference/border_remove.md),
+[`hline()`](https://davidgohel.github.io/flextable/reference/hline.md),
+[`hline_bottom()`](https://davidgohel.github.io/flextable/reference/hline_bottom.md),
+[`hline_top()`](https://davidgohel.github.io/flextable/reference/hline_top.md),
+[`surround()`](https://davidgohel.github.io/flextable/reference/surround.md),
+[`vline()`](https://davidgohel.github.io/flextable/reference/vline.md),
+[`vline_left()`](https://davidgohel.github.io/flextable/reference/vline_left.md),
+[`vline_right()`](https://davidgohel.github.io/flextable/reference/vline_right.md)
+
+## Examples
+
+``` r
+library(officer)
+std_border <- fp_border(color = "orange", width = 1)
+
+dat <- iris[c(1:5, 51:55, 101:105), ]
+ft <- flextable(dat)
+ft <- border_remove(x = ft)
+
+# add inner vertical borders
+ft <- border_inner(ft, border = std_border)
+ft
+
+
+.cl-d8bad469{}.cl-5430bca3{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-a1958ec5{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-6477613b{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-1e8c244b{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(255, 165, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-bc5145ed{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(255, 165, 0, 1.00);border-right: 1pt solid rgba(255, 165, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1cb9a222{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(255, 165, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-fcd58223{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(255, 165, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(255, 165, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-ae5d3583{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(255, 165, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(255, 165, 0, 1.00);border-right: 1pt solid rgba(255, 165, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-54bf5058{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(255, 165, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 1pt solid rgba(255, 165, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-029ad156{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(255, 165, 0, 1.00);border-top: 1pt solid rgba(255, 165, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(255, 165, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-926288e5{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(255, 165, 0, 1.00);border-top: 1pt solid rgba(255, 165, 0, 1.00);border-left: 1pt solid rgba(255, 165, 0, 1.00);border-right: 1pt solid rgba(255, 165, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-f5fb1887{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1pt solid rgba(255, 165, 0, 1.00);border-top: 1pt solid rgba(255, 165, 0, 1.00);border-left: 1pt solid rgba(255, 165, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-5d59bc7d{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(255, 165, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 1pt solid rgba(255, 165, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-dce6fcf2{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(255, 165, 0, 1.00);border-left: 1pt solid rgba(255, 165, 0, 1.00);border-right: 1pt solid rgba(255, 165, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-32422c08{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(255, 165, 0, 1.00);border-left: 1pt solid rgba(255, 165, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}
+
+
+Sepal.Length
+```

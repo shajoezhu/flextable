@@ -1,0 +1,100 @@
+# Transform and summarise a 'data.frame' into a flextable Simple summary of a data.frame as a flextable
+
+It displays the first rows and shows the column types. If there is only
+one row, a simplified vertical table is produced.
+
+## Usage
+
+``` r
+# S3 method for class 'data.frame'
+as_flextable(
+  x,
+  max_row = 10,
+  split_colnames = FALSE,
+  short_strings = FALSE,
+  short_size = 35,
+  short_suffix = "...",
+  do_autofit = TRUE,
+  show_coltype = TRUE,
+  color_coltype = "#999999",
+  ...
+)
+```
+
+## Arguments
+
+- x:
+
+  a data.frame
+
+- max_row:
+
+  The number of rows to print. Default to 10.
+
+- split_colnames:
+
+  Should the column names be split (with non alpha-numeric characters).
+  Default to FALSE.
+
+- short_strings:
+
+  Should the character column be shorten. Default to FALSE.
+
+- short_size:
+
+  Maximum length of character column if `short_strings` is TRUE. Default
+  to 35.
+
+- short_suffix:
+
+  Suffix to add when character values are shorten. Default to "...".
+
+- do_autofit:
+
+  Use
+  [`autofit()`](https://davidgohel.github.io/flextable/reference/autofit.md)
+  before rendering the table. Default to TRUE.
+
+- show_coltype:
+
+  Show column types. Default to TRUE.
+
+- color_coltype:
+
+  Color to use for column types. Default to "#999999".
+
+- ...:
+
+  unused arguments
+
+## See also
+
+Other as_flextable methods:
+[`as_flextable.compact_summary()`](https://davidgohel.github.io/flextable/reference/as_flextable.compact_summary.md),
+[`as_flextable.gam()`](https://davidgohel.github.io/flextable/reference/as_flextable.gam.md),
+[`as_flextable.glm()`](https://davidgohel.github.io/flextable/reference/as_flextable.glm.md),
+[`as_flextable.grouped_data()`](https://davidgohel.github.io/flextable/reference/as_flextable.grouped_data.md),
+[`as_flextable.htest()`](https://davidgohel.github.io/flextable/reference/as_flextable.htest.md),
+[`as_flextable.kmeans()`](https://davidgohel.github.io/flextable/reference/as_flextable.kmeans.md),
+[`as_flextable.lm()`](https://davidgohel.github.io/flextable/reference/as_flextable.lm.md),
+[`as_flextable.merMod()`](https://davidgohel.github.io/flextable/reference/as_flextable.merMod.md),
+[`as_flextable.pam()`](https://davidgohel.github.io/flextable/reference/as_flextable.pam.md),
+[`as_flextable.summarizor()`](https://davidgohel.github.io/flextable/reference/as_flextable.summarizor.md),
+[`as_flextable.table()`](https://davidgohel.github.io/flextable/reference/as_flextable.table.md),
+[`as_flextable.tabular()`](https://davidgohel.github.io/flextable/reference/as_flextable.tabular.md),
+[`as_flextable.tabulator()`](https://davidgohel.github.io/flextable/reference/as_flextable.tabulator.md),
+[`as_flextable.xtable()`](https://davidgohel.github.io/flextable/reference/as_flextable.xtable.md),
+[`compact_summary()`](https://davidgohel.github.io/flextable/reference/compact_summary.md)
+
+## Examples
+
+``` r
+as_flextable(mtcars)
+
+
+.cl-d8bad469{}.cl-5430bca3{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-8fbe04dd{font-family:'DejaVu Sans';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(153, 153, 153, 1.00);background-color:transparent;}.cl-a1958ec5{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-6477613b{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-11ea9a61{width:0.911in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-773d39c6{width:0.911in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-20b58663{width:0.911in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-9593ea8f{width:0.911in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-d4a1bbd7{width:0.911in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}
+
+
+
+mpg
+```
